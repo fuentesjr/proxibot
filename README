@@ -1,0 +1,8 @@
+Welcome to ProxiBot 
+
+Introduction
+============
+ProxiBot is a Google App Engine web application. It is writen in 
+Python. This is a fork of Nick Johnson's crowdguru. It is mostly
+an XMPP bot that proxies commands to other web applications via
+a RESTful API/Service. 
