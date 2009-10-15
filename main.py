@@ -14,11 +14,11 @@
 
 import wsgiref.handlers
 from google.appengine.ext import webapp
-from app.views import XmppHandler, LatestHandler 
+from app.views import XmppHandler, IndexHandler 
 
 def main():
   app = webapp.WSGIApplication([
-      ('/', LatestHandler),
+      ('/', IndexHandler),
       ('/_ah/xmpp/message/chat/', XmppHandler),
       ], debug=True)
   wsgiref.handlers.CGIHandler().run(app)

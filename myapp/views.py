@@ -5,13 +5,22 @@ from google.appengine.ext.webapp import xmpp_handlers
 from google.appengine.api import user
 from google.appengine.ext.webapp import template
 from google.appengine.ext import db
-from app.botmsgs import *
+from app.botmessages import *
+
+""" Commands to be Supported:
+
+/
+/
+
+"""
+
 
 class XmppHandler(xmpp_handlers.CommandHandler):
   """Handler class for all XMPP activity."""
 
   def _GetAsked(self, user):
     """Returns the user's outstanding asked question, if any."""
+
     q = Question.all()
     q.filter("asker =", user)
     q.filter("answer =", None)
@@ -19,6 +28,7 @@ class XmppHandler(xmpp_handlers.CommandHandler):
 
   def _GetAnswering(self, user):
     """Returns the question the user is answering, if any."""
+
     q = Question.all()
     q.filter("assignees =", user)
     q.filter("answer =", None)
@@ -26,7 +36,7 @@ class XmppHandler(xmpp_handlers.CommandHandler):
 
   def unhandled_command(self, message=None):
     # Show help text
-    message.reply(HELP_MSG % (self.request.host_url,))
+    message.reply(HELP_MSG % self.request.host_url)
 
   def askme_command(self, message=None):
     im_from = db.IM("xmpp", message.sender)
@@ -95,18 +105,15 @@ class XmppHandler(xmpp_handlers.CommandHandler):
       message.reply(PONDER_MSG)
 
 
-class LatestHandler(webapp.RequestHandler):
-  """Displays the most recently answered questions."""
+class IndexHandler(webapp.RequestHandler):
+  """Displays default help page"""
 
-  def Render(self, template_file, template_values):
+  def render_page(self, template_file, template_values):
     path = os.path.join(os.path.dirname(__file__), 'templates', template_file)
     self.response.out.write(template.render(path, template_values))
 
   def get(self):
-    q = Question.all().order('-answered').filter('answered >', None)
-    template_values = {
-      'questions': q.fetch(20),
-    }
-    self.Render("index.html", template_values)
+    template_values = {}
+    self.render_page("index.html", template_values)
 
 

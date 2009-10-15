@@ -30,20 +30,6 @@ body, input, textarea {
   margin-top: 2em;
 }
 
-dt:before, dd:before {
-  font-weight: bold;
-  padding-right: 0.5em;
-  font-size: 1.2em;
-}
-
-dt, dd {
-  margin-left: 1em;
-}
-
-dd {
-  margin-bottom: 1em;
-}
-
 th {
   width: 10em;
   text-align: left;
