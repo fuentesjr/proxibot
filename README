@@ -1,8 +1,39 @@
 Welcome to ProxiBot 
 
 Introduction
-============
-ProxiBot is a Google App Engine web application. It is writen in 
-Python. This is a fork of Nick Johnson's crowdguru. It is mostly
-an XMPP bot that proxies commands to other web applications via
-a RESTful API/Service. 
+================================================================================
+
+ProxiBot is a Google App Engine web application. It is written in Python. This
+is a fork of Nick Johnson's crowdguru. It is basically an XMPP bot that proxies 
+commands to other web applications via a RESTful API/Service. Thus, as long as
+an application implements the basic/required commands through a RESTful
+interface, those same resources become accessible through XMPP via ProxiBot.
+This ultimately allows an administrator/operator of multiple web applications
+to monitor and query those applications via an xmpp client (e.g. google talk).
+
+
+
+Preliminary Documentation
+================================================================================
+
+Every application that wishes to communicate/interface with ProxiBot must
+implement the following commands:
+
+/help
+-- Returns this list of basic/required commands
+
+/version
+-- Returns a string describing application's version number/name
+
+/operator
+-- Returns a string with the email address of the person/individual
+responsible for administering the application
+
+/xcmds
+-- Returns a json string describing application specific commands not supported 
+by the all applications
+
+/debug
+-- Returns a debugging string to be determined by application (for developers)
+
+

@@ -11,5 +11,5 @@ THANKS_MSG = "Thank you for your wisdom."
 TELLME_THANKS_MSG = ("Thank you for your wisdom."
                      " I'm still thinking about your question.")
 EMPTYQ_MSG = "Sorry, I don't have anything to ask you at the moment."
-HELP_MSG = ("Hello there. I am ProxiBot and I your wish is my command.")
+HELP_MSG = ("Hello. I am ProxiBot and Sal is my master. How can I help you, today?\n[%s]")
 MAX_ANSWER_TIME = 120

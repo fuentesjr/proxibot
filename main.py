@@ -17,11 +17,11 @@ from google.appengine.ext import webapp
 from app.views import XmppHandler, IndexHandler 
 
 def main():
-  app = webapp.WSGIApplication([
-      ('/', IndexHandler),
-      ('/_ah/xmpp/message/chat/', XmppHandler),
-      ], debug=True)
-  wsgiref.handlers.CGIHandler().run(app)
+    app = webapp.WSGIApplication([
+        ('/', IndexHandler),
+        ('/_ah/xmpp/message/chat/', XmppHandler),
+        ], debug=True)
+    wsgiref.handlers.CGIHandler().run(app)
 
 if __name__ == '__main__':
-  main()
+    main()
